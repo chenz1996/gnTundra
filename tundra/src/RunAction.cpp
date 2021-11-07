@@ -23,7 +23,7 @@
 #include "BuildLoop.hpp"
 #include "RunAction.hpp"
 #include "FileInfo.hpp"
-#include "Actions.hpp"
+#include "Actions.cpp"
 #include "EventLog.hpp"
 #include <stdarg.h>
 #include <algorithm>
