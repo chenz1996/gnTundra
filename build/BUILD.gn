@@ -1,0 +1,43 @@
+
+config("compiler_defaults") {
+  if (current_os == "linux") {
+    cflags = [
+      "-fPIC",
+      "-pthread",
+      "-m64",
+      "-mcx16",
+      "-msse2",
+      "-g",
+      "-D_FILE_OFFSET_BITS=64",
+      "-D_GLIBCXX_USE_CXX11_ABI=0",
+      "-O2",
+      "-fdata-sections",
+      "-ffunction-sections",
+      "-flto",
+      "-fmessage-length=0",
+      "-fno-exceptions",
+      "-fno-rtti",
+      "-fno-strict-aliasing",
+      "-fstrict-overflow",
+      "-fvisibility=hidden",
+      "-fuse-ld=lld",
+      "-Wl,--gc-sections",
+      "-Wl,--fatal-warnings",
+      "-Wl,--no-undefined",
+      "-Wl,--build-id",
+      "-Wl,-z,noexecstack",
+      "-pie",
+      "-Wl,--exclude-libs,ALL",
+      "-static-libstdc++",
+    ]
+  }
+}
+
+config("executable_ldconfig") {
+  if (!is_mac) {
+    ldflags = [
+      "-Wl,-rpath=\$ORIGIN/",
+      "-Wl,-rpath-link=",
+    ]
+  }
+}
