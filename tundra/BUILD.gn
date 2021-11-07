@@ -1,3 +1,4 @@
+executable("tundra3") {
     sources = [
         "Main.cpp",
         "src/Actions.hpp",
